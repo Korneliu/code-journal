@@ -1,4 +1,65 @@
-.form-data {
-  display: flex;
-  flex-direction: column;
+* {
+  font-family: sans-serif;
+}
+
+fieldset {
+  border: none;
+}
+
+fieldset label,
+input,
+textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  display: block;
+}
+
+header {
+  height: 50px;
+  padding-left: 12px;
+  line-height: 2.4;
+  background-color: rgb(86, 43, 129);
+  color: white;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+
+main {
+  background-color: rgb(240, 240, 240);
+}
+
+fieldset label {
+  font-weight: 600;
+}
+
+fieldset legend {
+  width: 100%;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+
+fieldset img {
+  height: 200px;
+  width: 100%;
+}
+
+fieldset h2 {
+  font-size: 1.6rem;
+}
+
+form button {
+  width: 80px;
+  height: 30px;
+  font-size: 1rem;
+  background-color: rgb(86, 43, 129);
+  color: white;
+  display: block;
+  float: right;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+}
 }

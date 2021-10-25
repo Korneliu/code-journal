@@ -16,24 +16,31 @@
 </head>
 <body>
   <header>
+    <div class="container">
+      <h1>Code Journal</h1>
+    </div>
   </header>
   <main>
-    <div data-view="entry-form">
-      <form>
-        <fieldset class="form-data">
-          <legend>New Entry</legend>
-          <label for="title">Title</label>
-          <input type="text" name="title" required>
-          <label for="photo-url">Photo Url</label>
-          <input type="text" name="photo-url" required>
-          <label for="notes">Notes</label>
-          <textarea required>
-          </textarea>
-          <button>Save</button>
-        </fieldset>
-      </form>
+    <div class="container">
+      <div data-view="entry-form" class="row">
+        <div class="column-full">
+        <form class="row">
+          <fieldset class="column-full">
+            <h2>New Entry</h2>
+            <img src="images/placeholder-image-square.jpg">
+            <label for="title">Title</label>
+            <input type="text" name="title" required>
+            <label for="photo-url">Photo URL</label>
+            <input type="text" name="photo-url" required>
+            <label for="notes">Notes</label>
+            <textarea required>
+            </textarea>
+            <button>Save</button>
+          </fieldset>
+        </form>
+      </div>
+      </div>
     </div>
-
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
