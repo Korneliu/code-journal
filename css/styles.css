@@ -11,20 +11,35 @@ input,
 textarea {
   width: 100%;
   margin-bottom: 10px;
+  margin-top: 15px;
   display: block;
 }
 
+fieldset input,
+textarea {
+  border: 1px solid rgb(201, 201, 201);
+}
+
+fieldset input {
+  height: 30px;
+}
+
+fieldset textarea {
+  height: 110px;
+}
+
 header {
-  height: 50px;
-  padding-left: 12px;
-  line-height: 2.4;
+  height: 40px;
+  line-height: 2.2;
   background-color: rgb(86, 43, 129);
   color: white;
 }
 
 header h1 {
+  margin-top: 0;
   font-size: 1.2rem;
   font-weight: 100;
+  padding-left: 15px;
 }
 
 main {
@@ -42,7 +57,7 @@ fieldset legend {
 }
 
 fieldset img {
-  height: 200px;
+  height: 185px;
   width: 100%;
 }
 
@@ -58,8 +73,6 @@ form button {
   color: white;
   display: block;
   float: right;
-  margin-top: 10px;
   border: none;
   border-radius: 5px;
-}
 }
