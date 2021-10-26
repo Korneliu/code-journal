@@ -6,6 +6,13 @@ fieldset {
   border: none;
 }
 
+input,
+textarea {
+  border-radius: 5px;
+  outline-color: rgb(86, 43, 129);
+  font-size: 1rem;
+}
+
 fieldset label,
 input,
 textarea {
@@ -75,8 +82,18 @@ form button {
   float: right;
   border: none;
   border-radius: 5px;
+  border-color: rgb(86, 43, 129);
+  cursor: pointer;
+}
+
+form button:enabled {
+  border-color: rgb(86, 43, 129);
 }
 
 .margin-top-0 label {
   margin-top: 0;
+}
+
+#notes {
+  resize: none;
 }

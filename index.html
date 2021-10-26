@@ -27,7 +27,7 @@
     <div class="container">
       <div data-view="entry-form" class="row">
         <div class="column-full">
-          <form>
+          <form id="form">
             <fieldset>
               <div class="row">
                 <div class="column-full">
@@ -38,15 +38,15 @@
                 </div>
                 <div class="column-half margin-top-0">
                   <label for="title">Title</label>
-                  <input type="text" name="title" required>
+                  <input id="title" type="text" name="title" required>
                   <label for="photo-url">Photo URL</label>
-                  <input id="photo-url" type="text" name="photo-url" required>
+                  <input id="photo-url" type="text" name="photo" required>
                 </div>
                 <div class="column-full">
                   <label for="notes">Notes</label>
-                  <textarea required>
+                  <textarea id="notes" name="notes" required>
                   </textarea>
-                  <button>Save</button>
+                  <button type="submit">Save</button>
                 </div>
               </div>
             </fieldset>
