@@ -28,12 +28,6 @@ function handleForm(event) {
 
 $form.addEventListener('submit', handleForm);
 
-/* var entry = {
-  title: 'Star Citizen',
-  image: 'https://robertsspaceindustries.com/rsi/static/images/SC-fb.jpg',
-  note: 'Lorem Ipsum, lorem ipsum, lorem ipsum'
-}; */
-
 function renderEntry(entry) {
 
   var liElement = document.createElement('li');
@@ -44,7 +38,7 @@ function renderEntry(entry) {
 
   var entryImage = document.createElement('img');
   entryImage.setAttribute('class', 'column-full column-half');
-  entryImage.setAttribute('src');
+  entryImage.setAttribute('src', entry.photo);
   mainRow.appendChild(entryImage);
 
   var columnHalf = document.createElement('div');
@@ -56,7 +50,7 @@ function renderEntry(entry) {
   columnHalf.appendChild(entryTitle);
 
   var note = document.createElement('p');
-  note.textContent = entry.note;
+  note.textContent = entry.notes;
   columnHalf.appendChild(note);
 
   return liElement;
@@ -65,7 +59,8 @@ function renderEntry(entry) {
 var list = document.querySelector('#list');
 
 window.addEventListener('DOMContentLoaded', event => {
-  for (var i = 0; i <= data.entries.length; i++) {
+
+  for (var i = 0; i < data.entries.length; i++) {
     var result = renderEntry(data.entries[i]);
     list.appendChild(result);
   }
