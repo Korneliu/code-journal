@@ -23,6 +23,14 @@
     max-width: 900px;
   }
 
+  li {
+    margin-bottom: 40px;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
   .column-full,
   .column-half {
     padding: 0 0.75rem;
