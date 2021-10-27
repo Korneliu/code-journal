@@ -4,7 +4,7 @@ var data = {
   view: 'entry-form',
   entries: [],
   editing: null,
-  nextEntryId: 0
+  nextEntryId: 1
 };
 
 function handleBeforUnload() {

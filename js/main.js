@@ -14,12 +14,7 @@ $photoUrl.addEventListener('input', handlePhotoUrl);
 
 function handleForm(event) {
   event.preventDefault();
-  var inputObject = {
-    title: '',
-    photo: '',
-    notes: '',
-    entryId: 0
-  };
+  var inputObject = {};
   inputObject.title = event.target.title.value;
   inputObject.photo = event.target.photo.value;
   inputObject.notes = event.target.notes.value;
