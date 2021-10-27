@@ -27,3 +27,46 @@ function handleForm(event) {
 }
 
 $form.addEventListener('submit', handleForm);
+
+/* var entry = {
+  title: 'Star Citizen',
+  image: 'https://robertsspaceindustries.com/rsi/static/images/SC-fb.jpg',
+  note: 'Lorem Ipsum, lorem ipsum, lorem ipsum'
+}; */
+
+function renderEntry(entry) {
+
+  var liElement = document.createElement('li');
+
+  var mainRow = document.createElement('div');
+  mainRow.setAttribute('class', 'row');
+  liElement.appendChild(mainRow);
+
+  var entryImage = document.createElement('img');
+  entryImage.setAttribute('class', 'column-full column-half');
+  entryImage.setAttribute('src');
+  mainRow.appendChild(entryImage);
+
+  var columnHalf = document.createElement('div');
+  columnHalf.setAttribute('class', 'column-half');
+  mainRow.appendChild(columnHalf);
+
+  var entryTitle = document.createElement('h2');
+  entryTitle.textContent = entry.title;
+  columnHalf.appendChild(entryTitle);
+
+  var note = document.createElement('p');
+  note.textContent = entry.note;
+  columnHalf.appendChild(note);
+
+  return liElement;
+}
+
+var list = document.querySelector('#list');
+
+window.addEventListener('DOMContentLoaded', event => {
+  for (var i = 0; i <= data.entries.length; i++) {
+    var result = renderEntry(data.entries[i]);
+    list.appendChild(result);
+  }
+});
