@@ -13,9 +13,7 @@ function handlePhotoUrl(event) {
 $photoUrl.addEventListener('input', handlePhotoUrl);
 
 function handleForm(event) {
-  event.preventDefault();
   var inputObject = {};
-
   inputObject.title = event.target.title.value;
   inputObject.photo = event.target.photo.value;
   inputObject.notes = event.target.notes.value;
@@ -23,7 +21,10 @@ function handleForm(event) {
   inputObject.entryId = data.nextEntryId;
   data.entries.unshift(inputObject);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+  renderEntry(data.entries[0]);
+
   $form.reset();
+
 }
 
 $form.addEventListener('submit', handleForm);
@@ -73,10 +74,10 @@ function handleView(event) {
 
   if (event.target.matches('.view')) {
     for (var i = 0; i < $viewList.length; i++) {
-      if ($viewList === event.target) {
-        $viewList[i].className = 'hidden';
-      } else {
+      if ($viewList[i] !== event.target) {
         $viewList[i].className = 'view';
+      } else {
+        $viewList[i].className = 'view hidden';
       }
     }
   }
