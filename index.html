@@ -20,16 +20,17 @@
       <div class="row">
         <div class="column-full">
           <h1 class="display-inline">Code Journal</h1>
-          <a class="display-inline" href="">Entries</a>
+          <a class="navbar-link" href="">Entries</a>
         </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <form id="form" data-view="entry-form" class="row">
+      <form id="form" data-view="entry-form" class="row view">
         <div class="column-full">
-          <h2>New Entry</h2>
+          <h2 class="display-inline new-entry-header">New Entry</h2>
+          <a class="navbar-link link-float-right" href="">NEW</a>
         </div>
         <div class="column-half">
           <img class="image" src="images/placeholder-image-square.jpg">
@@ -43,17 +44,15 @@
         <div class="column-full">
           <label for="notes">Notes</label>
           <textarea id="notes" name="notes" required>
-                </textarea>
+          </textarea>
           <button type="submit">Save</button>
         </div>
       </form>
     </div>
     <div class="container">
-      <div data-view="entry-form">
+      <div data-view="entry-form" class="view">
         <ul id="list">
           <h1 class="column-full">Entries</h1>
-
-
         </ul>
       </div>
     </div>

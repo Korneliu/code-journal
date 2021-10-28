@@ -65,3 +65,21 @@ window.addEventListener('DOMContentLoaded', event => {
     list.appendChild(result);
   }
 });
+
+var $viewList = document.querySelector('.view');
+
+function handleView(event) {
+  event.preventDefault();
+
+  if (event.target.matches('.view')) {
+    for (var i = 0; i < $viewList.length; i++) {
+      if ($viewList === event.target) {
+        $viewList[i].className = 'hidden';
+      } else {
+        $viewList[i].className = 'view';
+      }
+    }
+  }
+}
+
+document.querySelector('.view').addEventListener('click', handleView);
