@@ -67,20 +67,13 @@ window.addEventListener('DOMContentLoaded', event => {
   }
 });
 
-var $viewList = document.querySelector('.view');
-
-function handleView(event) {
-  event.preventDefault();
-
-  if (event.target.matches('.view')) {
-    for (var i = 0; i < $viewList.length; i++) {
-      if ($viewList[i] !== event.target) {
-        $viewList[i].className = 'view';
-      } else {
-        $viewList[i].className = 'view hidden';
-      }
+/* function switchingViews(viewName) {
+  var $viewList = document.querySelectorAll('.view');
+  for (var i = 0; i < $viewList.length; i++) {
+    if ($viewList[i].getAttribute('data-view') === viewName) {
+      $viewList[i].className = 'view ';
+    } else {
+      $viewList[i].className = 'view hidden';
     }
   }
-}
-
-document.querySelector('.view').addEventListener('click', handleView);
+} */
