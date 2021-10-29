@@ -22,9 +22,11 @@ function handleForm(event) {
   inputObject.entryId = data.nextEntryId;
   data.entries.unshift(inputObject);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
-
+  var newEntry = renderEntry(inputObject);
+  var ulList = document.querySelector('ul');
+  ulList.prepend(newEntry);
   $form.reset();
-  switchingViews('entries');
+  switchingViews('entry-form');
 
 }
 
@@ -71,9 +73,9 @@ function switchingViews(viewName) {
   var $viewList = document.querySelectorAll('.view');
   for (var i = 0; i < $viewList.length; i++) {
     if ($viewList[i].getAttribute('data-view') === viewName) {
-      $viewList[i].className = 'view';
-    } else {
       $viewList[i].className = 'view hidden';
+    } else {
+      $viewList[i].className = 'view';
     }
   }
 }
