@@ -20,7 +20,7 @@
       <div class="row">
         <div class="column-full">
           <h1 class="display-inline">Code Journal</h1>
-          <a class="navbar-link view-selector" href="">Entries</a>
+          <a class="navbar-link view-selector-entries" data-view="entry-form" href="">Entries</a>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes" required>
           </textarea>
-            <button type="submit">Save</button>
+            <button type="submit" class="save-entry" data-view="entry-form">Save</button>
           </div>
         </div>
       </form>
@@ -53,7 +53,7 @@
         <div class="row">
           <div class="column-full">
             <h1 class="entries-display-inline">Entries</h1>
-            <a class="navbar-link link-float-right view-selector" href="">NEW</a>
+            <a class="navbar-link link-float-right view-selector-new" data-view="entries" href="">NEW</a>
           </div>
         </div>
         <ul id="list">

@@ -13,6 +13,7 @@ function handlePhotoUrl(event) {
 $photoUrl.addEventListener('input', handlePhotoUrl);
 
 function handleForm(event) {
+  event.preventDefault();
   var inputObject = {};
   inputObject.title = event.target.title.value;
   inputObject.photo = event.target.photo.value;
@@ -21,16 +22,15 @@ function handleForm(event) {
   inputObject.entryId = data.nextEntryId;
   data.entries.unshift(inputObject);
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
-  renderEntry(data.entries[0]);
 
   $form.reset();
+  switchingViews('entries');
 
 }
 
 $form.addEventListener('submit', handleForm);
 
 function renderEntry(entry) {
-
   var liElement = document.createElement('li');
 
   var mainRow = document.createElement('div');
@@ -67,13 +67,22 @@ window.addEventListener('DOMContentLoaded', event => {
   }
 });
 
-/* function switchingViews(viewName) {
+function switchingViews(viewName) {
   var $viewList = document.querySelectorAll('.view');
   for (var i = 0; i < $viewList.length; i++) {
     if ($viewList[i].getAttribute('data-view') === viewName) {
-      $viewList[i].className = 'view ';
+      $viewList[i].className = 'view';
     } else {
       $viewList[i].className = 'view hidden';
     }
   }
-} */
+}
+
+function handleViews(event) {
+  event.preventDefault();
+  var eventAttribute = event.target.getAttribute('data-view');
+  switchingViews(eventAttribute);
+}
+
+document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
+document.querySelector('.view-selector-new').addEventListener('click', handleViews);
