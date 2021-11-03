@@ -62,10 +62,10 @@ function renderEntry(entry) {
 var list = document.querySelector('#list');
 
 window.addEventListener('DOMContentLoaded', event => {
-
   for (var i = 0; i < data.entries.length; i++) {
     var result = renderEntry(data.entries[i]);
     list.appendChild(result);
+    switchingViews(data.view);
   }
 });
 
@@ -78,6 +78,7 @@ function switchingViews(viewName) {
       $viewList[i].className = 'view';
     }
   }
+  data.view = viewName;
 }
 
 function handleViews(event) {
