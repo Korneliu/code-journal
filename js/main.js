@@ -52,6 +52,10 @@ function renderEntry(entry) {
   entryTitle.textContent = entry.title;
   columnHalf.appendChild(entryTitle);
 
+  var penIcon = document.createElement('i');
+  penIcon.className = 'fas fa-pencil-alt';
+  entryTitle.appendChild(penIcon);
+
   var note = document.createElement('p');
   note.textContent = entry.notes;
   columnHalf.appendChild(note);
@@ -89,3 +93,5 @@ function handleViews(event) {
 
 document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
 document.querySelector('.view-selector-new').addEventListener('click', handleViews);
+
+// <i class="fa-solid fa-pen"></i>
