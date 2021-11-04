@@ -1,52 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code Journal</title>
   <link rel="icon" href="images/favicon.ico">
-  <link
-    rel="stylesheet"
-    crossorigin="anonymous"
+  <link rel="stylesheet" crossorigin="anonymous"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
   <header>
     <div class="container">
       <div class="row">
-        <h1 class="column-full">Code Journal</h1>
+        <div class="column-full">
+          <h1 class="display-inline">Code Journal</h1>
+          <a class="navbar-link view-selector-entries" data-view="entry-form" href="">Entries</a>
+        </div>
       </div>
     </div>
   </header>
   <main>
     <div class="container">
-      <form id="form" data-view="entry-form" class="row">
-        <div class="column-full">
-          <h2>New Entry</h2>
-        </div>
-        <div class="column-half">
-          <img class="image" src="images/placeholder-image-square.jpg">
-        </div>
-        <div class="column-half margin-top-0">
-          <label for="title">Title</label>
-          <input id="title" type="text" name="title" required>
-          <label for="photo-url">Photo URL</label>
-          <input id="photo-url" type="text" name="photo" required>
-        </div>
-        <div class="column-full">
-          <label for="notes">Notes</label>
-          <textarea id="notes" name="notes" required>
-                </textarea>
-          <button type="submit">Save</button>
+      <form id="form" data-view="entry-form" class="view">
+        <div class="row">
+          <div class="column-full">
+            <h2 class="display-inline new-entry-header">New Entry</h2>
+          </div>
+          <div class="column-half">
+            <img class="image" src="images/placeholder-image-square.jpg">
+          </div>
+          <div class="column-half margin-top-0">
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" required>
+            <label for="photo-url">Photo URL</label>
+            <input id="photo-url" type="text" name="photo" required>
+          </div>
+          <div class="column-full">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes" required>
+          </textarea>
+            <button type="submit" class="save-entry" data-view="entry-form">Save</button>
+          </div>
         </div>
       </form>
+      <div data-view="entries" class="view">
+        <div class="row">
+          <div class="column-full">
+            <h1 class="entries-display-inline">Entries</h1>
+            <a class="navbar-link link-float-right view-selector-new" data-view="entries" href="">NEW</a>
+          </div>
+        </div>
+        <ul id="list">
+
+        </ul>
+      </div>
     </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
 </body>
+
 </html>

@@ -1,11 +1,16 @@
 /* exported data */
 
 var data = {
-  view: 'entry-form',
+  view: 'entries',
   entries: [],
   editing: null,
   nextEntryId: 1
 };
+
+var previousDataJson = localStorage.getItem('code-journal-local-storage');
+if (previousDataJson !== null) {
+  data = JSON.parse(previousDataJson);
+}
 
 function handleBeforUnload() {
   var dataJSON = JSON.stringify(data);
