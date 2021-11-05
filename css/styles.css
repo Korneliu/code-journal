@@ -130,4 +130,5 @@ a {
   font-size: 1.6rem;
   float: right;
   padding-top: 5px;
+  cursor: pointer;
 }

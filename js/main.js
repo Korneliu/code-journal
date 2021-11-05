@@ -34,6 +34,7 @@ $form.addEventListener('submit', handleForm);
 
 function renderEntry(entry) {
   var liElement = document.createElement('li');
+  liElement.setAttribute('data-entry', entry.entryId);
 
   var mainRow = document.createElement('div');
   mainRow.setAttribute('class', 'row');
@@ -91,7 +92,16 @@ function handleViews(event) {
   switchingViews(eventAttribute);
 }
 
+function handleEdit(event) {
+  event.preventDefault();
+  var entryAttribute = parseInt(event.target.closest('li').getAttribute('data-entry'));
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === entryAttribute) {
+      data.editing = data.entries[i];
+    }
+  }
+}
+
+document.querySelector('ul').addEventListener('click', handleEdit);
 document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
 document.querySelector('.view-selector-new').addEventListener('click', handleViews);
-
-// <i class="fa-solid fa-pen"></i>
