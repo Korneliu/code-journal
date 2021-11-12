@@ -30,10 +30,13 @@ function handleForm(event) {
             renderedObject[j].replaceWith(renderEntry(editedObject));
           }
         }
-        switchingViews('entry-form');
+
       }
+
+      switchingViews('entry-form');
+
     }
-  } else {
+  } if (data.editing === null) {
     var inputObject = {};
     inputObject.title = event.target.title.value;
     inputObject.photo = event.target.photo.value;
@@ -46,9 +49,12 @@ function handleForm(event) {
     var ulList = document.querySelector('ul');
     ulList.prepend(newEntry);
     $form.reset();
-    data.editing = null;
+
     switchingViews('entry-form');
+
   }
+  data.editing = null;
+  console.log(data.editing);
 }
 
 $form.addEventListener('submit', handleForm);
@@ -114,16 +120,19 @@ function handleViews(event) {
 function handleEdit(event) {
   event.preventDefault();
   var entryAttribute = parseInt(event.target.closest('li').getAttribute('data-entry'));
-  for (var i = 0; i < data.entries.length; i++) {
-    if (data.entries[i].entryId === entryAttribute) {
-      data.editing = data.entries[i];
+  if (event.target.tagName === 'I') {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].entryId === entryAttribute) {
+        data.editing = data.entries[i];
+      }
       $image.setAttribute('src', data.entries[i].photo);
+      $title.value = data.editing.title;
+      $photoUrl.value = data.editing.photo;
+      $notes.value = data.editing.notes;
+      switchingViews('entries');
+
     }
 
-    $title.value = data.editing.title;
-    $photoUrl.value = data.editing.photo;
-    $notes.value = data.editing.notes;
-    switchingViews('entries');
   }
 }
 
