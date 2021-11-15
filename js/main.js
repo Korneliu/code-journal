@@ -30,11 +30,8 @@ function handleForm(event) {
             renderedObject[j].replaceWith(renderEntry(editedObject));
           }
         }
-
       }
-
       switchingViews('entry-form');
-
     }
   } if (data.editing === null) {
     var inputObject = {};
@@ -48,16 +45,12 @@ function handleForm(event) {
     var newEntry = renderEntry(inputObject);
     var ulList = document.querySelector('ul');
     ulList.prepend(newEntry);
-    $form.reset();
-
     switchingViews('entry-form');
-
   }
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
   data.editing = null;
-  console.log(data.editing);
 }
-
-$form.addEventListener('submit', handleForm);
 
 function renderEntry(entry) {
   var liElement = document.createElement('li');
@@ -125,17 +118,16 @@ function handleEdit(event) {
       if (data.entries[i].entryId === entryAttribute) {
         data.editing = data.entries[i];
       }
-      $image.setAttribute('src', data.entries[i].photo);
-      $title.value = data.editing.title;
-      $photoUrl.value = data.editing.photo;
-      $notes.value = data.editing.notes;
-      switchingViews('entries');
-
     }
-
+    $image.setAttribute('src', data.editing.photo);
+    $title.value = data.editing.title;
+    $photoUrl.value = data.editing.photo;
+    $notes.value = data.editing.notes;
+    switchingViews('entries');
   }
 }
 
 document.querySelector('ul').addEventListener('click', handleEdit);
 document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
 document.querySelector('.view-selector-new').addEventListener('click', handleViews);
+$form.addEventListener('submit', handleForm);
