@@ -51,7 +51,7 @@ main {
 }
 
 img {
-  height: 210px;
+  height: 200px;
   width: 100%;
   margin-bottom: 20px;
 }
@@ -123,4 +123,12 @@ a {
   border-radius: 5px;
   margin-top: 20px;
   line-height: 2;
+}
+
+.fas {
+  color: rgb(86, 43, 129);
+  font-size: 1.6rem;
+  float: right;
+  padding-top: 5px;
+  cursor: pointer;
 }
