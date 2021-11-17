@@ -7,6 +7,9 @@ var $form = document.querySelector('#form');
 var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var list = document.querySelector('#list');
+var $rowHeader = document.querySelector('.row-header');
+var $deleteButton = document.querySelector('.delete-button-visible');
+var $confirmationModal = document.querySelector('.confirmation-modal-invisible');
 
 function handlePhotoUrl(event) {
   var imageUrl = event.target.value;
@@ -123,7 +126,36 @@ function handleEdit(event) {
     $title.value = data.editing.title;
     $photoUrl.value = data.editing.photo;
     $notes.value = data.editing.notes;
+    document.querySelector('.delete-button-invisible').setAttribute('class', 'delete-button-visible');
     switchingViews('entries');
+  }
+}
+
+function handleDeleteEntry(event) {
+  event.preventDefault();
+  /*   var $confirmationModalBackground = document.createElement('div');
+  $confirmationModalBackground.setAttribute('class', 'confirmation-modal-background');
+  $rowHeader.appendChild($confirmationModalBackground); */
+  $confirmationModal.setAttribute('class', 'confirmation-modal-visible');
+}
+
+var $confirmationModalBackground = document.querySelector('.confirmation-modal-background');
+
+function handleCancelButton(event) {
+  event.preventDefault();
+  $confirmationModal.setAttribute('class', 'confirmation-modal-invisible');
+  $confirmationModalBackground.remove();
+}
+
+function handleDeleteEntryButton(event) {
+  event.preventDefault();
+  console.log(data.entries);
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(data.entries.indexOf(data.entries[i]), 1);
+      $confirmationModal.setAttribute('class', 'confirmation-modal-invisible');
+      // switchingViews('entries');
+    }
   }
 }
 
@@ -131,3 +163,6 @@ document.querySelector('ul').addEventListener('click', handleEdit);
 document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
 document.querySelector('.view-selector-new').addEventListener('click', handleViews);
 $form.addEventListener('submit', handleForm);
+document.querySelector('.delete-button-invisible').addEventListener('click', handleDeleteEntry);
+document.querySelector('.cancel-button').addEventListener('click', handleCancelButton);
+document.querySelector('.confirm-button').addEventListener('click', handleDeleteEntryButton);

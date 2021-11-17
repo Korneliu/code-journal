@@ -16,7 +16,7 @@
 
 <body>
   <header>
-    <div class="container">
+    <div class="container ">
       <div class="row">
         <div class="column-full">
           <h1 class="display-inline">Code Journal</h1>
@@ -27,24 +27,34 @@
   </header>
   <main>
     <div class="container">
+      <div class="overlay-hidden">
       <form id="form" data-view="entry-form" class="view">
         <div class="row">
           <div class="column-full">
-            <h2 class="display-inline new-entry-header">New Entry</h2>
+            <h2 class="display-inline new-entry-header">New</h2>
           </div>
           <div class="column-half">
             <img class="image" src="images/placeholder-image-square.jpg">
           </div>
+
           <div class="column-half margin-top-0">
             <label for="title">Title</label>
             <input id="title" type="text" name="title" required>
             <label for="photo-url">Photo URL</label>
             <input id="photo-url" type="text" name="photo" required>
           </div>
+          <div class="confirmation-modal-invisible">
+            <h2>Are you sure you want delete this entry?</h2>
+            <div class="row space-between">
+              <button class="cancel-button">CANCEL</button>
+              <button class="confirm-button">CONFIRM</button>
+            </div>
+          </div>
           <div class="column-full">
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes" required>
           </textarea>
+          <a class="delete-button-invisible" href="">Delete Entry</a>
             <button type="submit" class="save-entry" data-view="entry-form">Save</button>
           </div>
         </div>
@@ -60,6 +70,7 @@
 
         </ul>
       </div>
+    </div>
     </div>
   </main>
   <script src="js/data.js"></script>
