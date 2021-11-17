@@ -6,7 +6,6 @@
   max-width: 575px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  z-index: 1;
 }
 
 .row {
@@ -44,5 +43,16 @@
   .column-half img {
     height: 290px;
     width: 100%;
+  }
+
+  .confirmation-modal-visible {
+    position: fixed;
+    top: 30%;
+    left: 30%;
+    margin: 0 auto;
+    background-color: white;
+    width: 430px;
+    height: 150px;
+    text-align: center;
   }
 }

@@ -15,8 +15,9 @@
 </head>
 
 <body>
+  <div class="background-main-invisible"></div>
   <header>
-    <div class="container ">
+    <div class="container">
       <div class="row">
         <div class="column-full">
           <h1 class="display-inline">Code Journal</h1>
@@ -27,11 +28,10 @@
   </header>
   <main>
     <div class="container">
-      <div class="overlay-hidden">
       <form id="form" data-view="entry-form" class="view">
         <div class="row">
           <div class="column-full">
-            <h2 class="display-inline new-entry-header">New</h2>
+            <h2 class="display-inline new-entry-header">New Entry</h2>
           </div>
           <div class="column-half">
             <img class="image" src="images/placeholder-image-square.jpg">
@@ -44,24 +44,24 @@
             <input id="photo-url" type="text" name="photo" required>
           </div>
           <div class="confirmation-modal-invisible">
-            <h2>Are you sure you want delete this entry?</h2>
-            <div class="row space-between">
-              <button class="cancel-button">CANCEL</button>
-              <button class="confirm-button">CONFIRM</button>
+              <h2>Are you sure you want delete this entry?</h2>
+              <div class="row">
+                <div class="cancel-button">CANCEL</div>
+                <div class="confirm-button">CONFIRM</div>
             </div>
-          </div>
+            </div>
           <div class="column-full">
             <label for="notes">Notes</label>
             <textarea id="notes" name="notes" required>
           </textarea>
-          <a class="delete-button-invisible" href="">Delete Entry</a>
+          <a href="" class="delete-button-invisible">Delete Entry</a>
             <button type="submit" class="save-entry" data-view="entry-form">Save</button>
           </div>
         </div>
       </form>
       <div data-view="entries" class="view">
         <div class="row">
-          <div class="column-full">
+          <div class="column-full margin-top10 padding-bottom10">
             <h1 class="entries-display-inline">Entries</h1>
             <a class="navbar-link link-float-right view-selector-new" data-view="entries" href="">NEW</a>
           </div>
@@ -70,7 +70,6 @@
 
         </ul>
       </div>
-    </div>
     </div>
   </main>
   <script src="js/data.js"></script>
