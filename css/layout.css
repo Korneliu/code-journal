@@ -44,15 +44,4 @@
     height: 290px;
     width: 100%;
   }
-
-  .confirmation-modal-visible {
-    position: fixed;
-    top: 30%;
-    left: 30%;
-    margin: 0 auto;
-    background-color: white;
-    width: 430px;
-    height: 150px;
-    text-align: center;
-  }
 }

@@ -9,6 +9,7 @@ var $notes = document.querySelector('#notes');
 var list = document.querySelector('#list');
 var $backgroundMain = document.querySelector('.background-main-invisible');
 var $confirmationModal = document.querySelector('.confirmation-modal-invisible');
+var $newEntryHeader = document.querySelector('.new-entry-header');
 
 function handlePhotoUrl(event) {
   var imageUrl = event.target.value;
@@ -31,11 +32,10 @@ function handleForm(event) {
           }
         }
       }
-      document.querySelector('.delete-button-visible').setAttribute('class', 'delete-button-invisible');
-      switchingViews('entry-form');
     }
+    document.querySelector('.delete-button-visible').setAttribute('class', 'delete-button-invisible');
+    switchingViews('entry-form');
   } if (data.editing === null) {
-
     var inputObject = {};
     inputObject.title = event.target.title.value;
     inputObject.photo = event.target.photo.value;
@@ -49,7 +49,7 @@ function handleForm(event) {
     ulList.prepend(newEntry);
     switchingViews('entry-form');
   }
-
+  $newEntryHeader.textContent = 'New Entry';
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   data.editing = null;
@@ -116,6 +116,7 @@ function handleViews(event) {
 function handleEdit(event) {
   event.preventDefault();
   document.querySelector('.delete-button-invisible').setAttribute('class', 'delete-button-visible');
+  $newEntryHeader.textContent = 'Edit Entry';
   var entryAttribute = parseInt(event.target.closest('li').getAttribute('data-entry'));
   if (event.target.tagName === 'I') {
     for (var i = 0; i < data.entries.length; i++) {
@@ -133,8 +134,8 @@ function handleEdit(event) {
 
 function handleDeleteEntry(event) {
   event.preventDefault();
-  $confirmationModal.setAttribute('class', 'confirmation-modal-visible');
   $backgroundMain.setAttribute('class', 'background-main-visible');
+  $confirmationModal.setAttribute('class', 'confirmation-modal-visible');
 }
 
 function handleCancelButton(event) {
@@ -156,7 +157,6 @@ function handleDeleteEntryButton(event) {
       }
     }
   }
-
   $confirmationModal.setAttribute('class', 'confirmation-modal-invisible');
   $backgroundMain.setAttribute('class', 'background-main-invisible');
   document.querySelector('.delete-button-visible').setAttribute('class', 'delete-button-invisible');
