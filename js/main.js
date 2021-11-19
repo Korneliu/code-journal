@@ -7,13 +7,14 @@ var $form = document.querySelector('#form');
 var $title = document.querySelector('#title');
 var $notes = document.querySelector('#notes');
 var list = document.querySelector('#list');
+var $backgroundMain = document.querySelector('.background-main-invisible');
+var $confirmationModal = document.querySelector('.confirmation-modal-invisible');
+var $newEntryHeader = document.querySelector('.new-entry-header');
 
 function handlePhotoUrl(event) {
   var imageUrl = event.target.value;
   $image.setAttribute('src', imageUrl);
 }
-
-$photoUrl.addEventListener('input', handlePhotoUrl);
 
 function handleForm(event) {
   event.preventDefault();
@@ -31,8 +32,9 @@ function handleForm(event) {
           }
         }
       }
-      switchingViews('entry-form');
     }
+    document.querySelector('.delete-button-visible').setAttribute('class', 'delete-button-invisible');
+    switchingViews('entry-form');
   } if (data.editing === null) {
     var inputObject = {};
     inputObject.title = event.target.title.value;
@@ -47,6 +49,7 @@ function handleForm(event) {
     ulList.prepend(newEntry);
     switchingViews('entry-form');
   }
+  $newEntryHeader.textContent = 'New Entry';
   $image.setAttribute('src', 'images/placeholder-image-square.jpg');
   $form.reset();
   data.editing = null;
@@ -112,6 +115,8 @@ function handleViews(event) {
 
 function handleEdit(event) {
   event.preventDefault();
+  document.querySelector('.delete-button-invisible').setAttribute('class', 'delete-button-visible');
+  $newEntryHeader.textContent = 'Edit Entry';
   var entryAttribute = parseInt(event.target.closest('li').getAttribute('data-entry'));
   if (event.target.tagName === 'I') {
     for (var i = 0; i < data.entries.length; i++) {
@@ -127,7 +132,45 @@ function handleEdit(event) {
   }
 }
 
+function handleDeleteEntry(event) {
+  event.preventDefault();
+  $backgroundMain.setAttribute('class', 'background-main-visible');
+  $confirmationModal.setAttribute('class', 'confirmation-modal-visible');
+}
+
+function handleCancelButton(event) {
+  event.preventDefault();
+  $backgroundMain.setAttribute('class', 'background-main-invisible');
+  $confirmationModal.setAttribute('class', 'confirmation-modal-invisible');
+}
+
+function handleDeleteEntryButton(event) {
+  event.preventDefault();
+  for (var i = 0; i < data.entries.length; i++) {
+    if (data.editing.entryId === data.entries[i].entryId) {
+      data.entries.splice(data.entries.indexOf(data.entries[i]), 1);
+      var renderedObject = document.querySelectorAll('li');
+      for (var j = 0; j < renderedObject.length; j++) {
+        if (parseInt(renderedObject[j].dataset.entry) === data.editing.entryId) {
+          renderedObject[j].remove();
+        }
+      }
+    }
+  }
+  $confirmationModal.setAttribute('class', 'confirmation-modal-invisible');
+  $backgroundMain.setAttribute('class', 'background-main-invisible');
+  document.querySelector('.delete-button-visible').setAttribute('class', 'delete-button-invisible');
+  switchingViews('entry-form');
+  $image.setAttribute('src', 'images/placeholder-image-square.jpg');
+  $form.reset();
+  data.editing = null;
+}
+
+$photoUrl.addEventListener('input', handlePhotoUrl);
+$form.addEventListener('submit', handleForm);
 document.querySelector('ul').addEventListener('click', handleEdit);
 document.querySelector('.view-selector-entries').addEventListener('click', handleViews);
 document.querySelector('.view-selector-new').addEventListener('click', handleViews);
-$form.addEventListener('submit', handleForm);
+document.querySelector('.delete-button-invisible').addEventListener('click', handleDeleteEntry);
+document.querySelector('.cancel-button').addEventListener('click', handleCancelButton);
+document.querySelector('.confirm-button').addEventListener('click', handleDeleteEntryButton);
